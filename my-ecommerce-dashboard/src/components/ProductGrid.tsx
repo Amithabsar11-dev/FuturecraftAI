@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Image from 'next/image';  
 
 interface Product {
   id: number;
@@ -33,9 +34,11 @@ export default function ProductGrid() {
       {data?.map((product) => (
         <Link key={product.id} href={`/dashboard/products/${product.id}`}>
           <div className="border rounded-lg p-4 bg-white dark:bg-gray-800 hover:shadow-md transition cursor-pointer">
-            <img
+            <Image
               src={product.image}
               alt={product.title}
+              width={500} 
+              height={500}  
               className="w-full h-40 object-contain mb-4"
             />
             <h2 className="text-lg font-semibold text-black dark:text-white truncate">{product.title}</h2>

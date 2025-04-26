@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
+import Image from 'next/image';  
 
 interface Product {
   id: number;
@@ -168,9 +168,11 @@ export default function DashboardPage() {
             key={product.id}
             className="border rounded p-4 bg-white dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition"
           >
-            <img
+            <Image
               src={product.image}
               alt={product.title}
+              width={500}  // Set a fixed width or use dynamic width based on your design
+              height={500}
               className="h-40 w-full object-contain mb-4"
             />
             <h2 className="text-lg font-semibold text-black dark:text-white">{product.title}</h2>
